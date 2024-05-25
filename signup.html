@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> HEADER | E-COMMERCE WEBSITE </title>
+    <!-- favicon -->
+    <link rel="icon" href="https://yt3.ggpht.com/a/AGF-l78km1YyNXmF0r3-0CycCA0HLA_i6zYn_8NZEg=s900-c-k-c0xffffffff-no-rj-mo" type="image/gif" sizes="16x16">
+    <!-- EXTERNAL LINKS -->
+    <link rel="stylesheet" href="css/header.css">
+    <script src="https://kit.fontawesome.com/4a3b1f73a2.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <style>
+                .loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #000000;
+        transition: opacity 0.75s, visibility 0.75s;
+        }
+
+        .loader--hidden {
+        opacity: 0;
+        visibility: hidden;
+        }
+
+        .loader::after {
+        content: "";
+        width: 75px;
+        height: 75px;
+        border: 15px solid #ffffff;
+        border-top-color: #000000;
+        border-radius: 50%;
+        animation: loading 0.75s ease infinite;
+        }
+
+        @keyframes loading {
+        from {
+            transform: rotate(0turn);
+        }
+        to {
+            transform: rotate(1turn);
+        }
+        }
+            
+    </style>
+<script>
+    window.addEventListener("load", () => {
+               const loader = document.querySelector(".loader");
+   
+               loader.classList.add("loader--hidden");
+   
+               loader.addEventListener("transitionend", () => {
+                   if (loader && loader.parentNode) {
+                       document.body.removeChild(loader);
+                   }
+               });
+           });
+   </script>
+</head>
+<body>
+    <div class="loader"></div>
+    <header>
+        <section>
+            <!-- MAIN CONTAINER -->
+            <div id="container">
+                <!-- SHOP NAME -->
+                <div id="shopName"><a href="index.html"><b>SHOP</b>LANE</a></div>
+            </div>
+
+        </section>
+    </header>
+    <div class="bg-light d-flex justify-content-center align-items-center vh-100">
+        <form action="signup.php" class="w-25 bg-light p-4 rounded" method="post" onsubmit="return validate()">
+            <h1 class="text-center" >Sign Up</h1>
+            <input required class="form-control mt-2" placeholder="Username" name="username">
+            <input required id="pass1" class="form-control mt-2"type="password" placeholder="Password" name="password">
+            <input required id="pass2" class="form-control mt-2"type="password" placeholder="Rewrite Password">
+        <div class="text-center mt-2">
+            <button class="btn btn-dark">Sign up</button>
+        </div>
+        <script>
+            function validate(){
+                pass1obj=document.getElementById("pass1")
+                pass2obj=document.getElementById("pass2")
+
+                if(pass1obj.value===pass2obj.value){
+                    return true;
+                }
+                else{
+                    alert("Password not same")
+                    return false;
+                }
+            }
+         </script>
+        </form>
+    </div>
+
+    <!-- FOOTER -->
+    <div id="4"></div>
+    <script>
+        load("footer.html");
+        function load(url) {
+            req = new XMLHttpRequest();
+            req.open("GET", url, false);
+            req.send(null);
+            document.getElementById(4).innerHTML = req.responseText;
+        }
+    </script>
+            
+</body>
+    
+</html>
